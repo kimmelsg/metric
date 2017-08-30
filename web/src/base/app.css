@@ -1,0 +1,18 @@
+body {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #000000;
+}
+
+.App {
+  max-width: 100%;
+  display: grid;
+
+  grid-gap: 40px;
+  grid-template-columns: repeat(5, calc(20% - 32px));
+  grid-template-rows: repeat(5, 100px);
+}
+
+.block {
+  background-color: #1ca8dd;
+}
