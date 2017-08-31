@@ -1,25 +1,19 @@
 import './app.css';
+import App from './app';
 import React from 'react';
-import Card from '../card';
+import { ApolloClient, ApolloProvider } from 'react-apollo';
+import { SubscriptionClient } from 'subscriptions-transport-ws';
 
-const cards = [
-  { title: 'First Revenue', type: 'count' },
-  { title: 'Revenue', type: 'count' },
-  { title: 'Revenue', type: 'count' },
-  { title: 'Revenue', type: 'count' },
-  { title: 'Revenue', type: 'count' },
-  {
-    title: 'Revenue',
-    type: 'line',
-    style: { gridRow: '2 / 5' },
-  },
-];
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        {cards.map((data, index) => <Card key={index} data={data} />)}
-      </div>
-    );
-  }
-}
+const client = new SubscriptionClient('ws://localhost:8888/subscriptions', {
+  reconnect: true,
+});
+
+const apolloClient = new ApolloClient({
+  networkInterface: client,
+});
+
+export default () => (
+  <ApolloProvider client={apolloClient}>
+    <App />
+  </ApolloProvider>
+);
