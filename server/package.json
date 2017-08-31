@@ -15,7 +15,8 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "graphql": "^0.11.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "subscriptions-transport-ws": "^0.8.2"
   },
   "author": "",
   "license": "ISC"
