@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r @std/esm index.js"
+  },
+  "@std/esm": {
+    "esm": "all"
+  },
+  "dependencies": {
+    "@std/esm": "^0.7.1",
+    "apollo-server-express": "^1.1.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "graphql": "^0.11.2",
+    "lodash": "^4.17.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

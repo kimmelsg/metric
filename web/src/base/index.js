@@ -11,7 +11,7 @@ const cards = [
   {
     title: 'Revenue',
     type: 'line',
-    chart: { width: 900 },
+    style: { gridRow: '2 / 5' },
   },
 ];
 export default class App extends React.Component {
