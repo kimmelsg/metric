@@ -1,18 +1,14 @@
 import React from 'react';
-import Card from '../card';
-import StatsQuery from '../gql/queries/stats';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-export class App extends React.Component {
-  render() {
-    let { stats } = this.props.data;
-    if (!stats) return null;
+import Board from '../views/board';
 
-    return (
-      <div className="App">
-        {stats.map((data, index) => <Card key={index} data={{ ...data }} />)}
-      </div>
-    );
-  }
-}
-
-export default StatsQuery(App);
+export default () => (
+  <BrowserRouter>
+    <div>
+      <Switch>
+        <Route path="/:board" component={Board} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+);

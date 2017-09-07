@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-validify';
-import Input from '../shared/input';
+import Input from '../../../shared/input';
 
 export default class Edit extends React.Component {
   constructor() {

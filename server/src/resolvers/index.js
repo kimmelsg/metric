@@ -1,5 +1,5 @@
 import lodash from 'lodash';
 
-import Stats from './stats';
+import Board from './board';
 
-export default lodash.merge(Stats);
+export default lodash.merge(Board);

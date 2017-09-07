@@ -12,21 +12,21 @@ h3 {
   font-size: 24px;
 }
 
-.App {
+.board {
   max-width: 100%;
   display: grid;
   grid-gap: 40px;
 }
 
 @media only screen and (min-width: 1320px) {
-  .App {
+  .board {
     grid-template-columns: repeat(5, calc(20% - 32px));
     grid-template-rows: repeat(5, 80px);
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1320px) {
-  .App {
+  .board {
     grid-template-columns: repeat(2, calc(50% - 32px));
     grid-template-rows: repeat(5, 80px);
   }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r @std/esm index.js"
+    "start": "node -r @std/esm -r dotenv/config index.js"
   },
   "@std/esm": {
     "esm": "all"
@@ -19,6 +19,7 @@
     "knex": "^0.13.0",
     "lodash": "^4.17.4",
     "mysql": "^2.14.1",
+    "objection": "^0.8.9",
     "subscriptions-transport-ws": "^0.8.2"
   },
   "author": "",

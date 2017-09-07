@@ -1,8 +1,9 @@
-import stats from './stats';
+import board from './board';
 
 const query = `
   type Query {
-    stats(boardId: Int!): [Stat]
+    # Get cards and other data for a stat board
+    board(slug: String!): Board
   }
 `;
 
@@ -12,4 +13,4 @@ const schemaDefinition = `
   }
 `;
 
-export default [schemaDefinition, query, stats];
+export default [schemaDefinition, query, board];
