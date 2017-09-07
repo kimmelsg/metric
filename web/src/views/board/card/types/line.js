@@ -20,11 +20,24 @@ export default class Line extends React.Component {
     return (
       <div className="chart" ref={chart => (this.chart = chart)}>
         <VictoryChart width={width} height={height} domainPadding={{ y: 20 }}>
-          <VictoryAxis style={{ tickLabels: { fontSize: 18 } }} />
-          <VictoryAxis style={{ tickLabels: { fontSize: 18 } }} dependentAxis />
+          <VictoryAxis
+            style={{
+              tickLabels: { fontSize: 18 },
+              axis: { stroke: '#FFFFFF' },
+              tickLabels: { fill: '#FFFFFF' },
+            }}
+          />
+          <VictoryAxis
+            style={{
+              tickLabels: { fontSize: 18 },
+              axis: { stroke: '#FFFFFF' },
+              tickLabels: { fill: '#FFFFFF' },
+            }}
+            dependentAxis
+          />
           <VictoryLine
             style={{
-              data: { stroke: '#c43a31' },
+              data: { stroke: '#FFFFFF' },
               parent: { border: '1px solid #ccc' },
             }}
             data={chart}
