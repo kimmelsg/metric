@@ -10,7 +10,7 @@ import subscriptions from 'subscriptions-transport-ws';
 
 var app = express();
 
-app.use('/insert/:category/:slug', webhook);
+app.use('/insert/:category/:slug', bodyParser.json(), webhook);
 app.use('/graphql', bodyParser.json(), apollo.graphqlExpress({ schema }));
 app.use(
   '/graphiql',

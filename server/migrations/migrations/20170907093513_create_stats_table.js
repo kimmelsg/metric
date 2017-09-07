@@ -3,7 +3,9 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('category');
     table.string('slug');
-    table.enu('frequency', ['hourly', 'daily', 'weekly', 'monthly']);
+    table
+      .enu('frequency', ['hourly', 'daily', 'weekly', 'monthly'])
+      .default('weekly');
 
     table.timestamps(true, true);
 
