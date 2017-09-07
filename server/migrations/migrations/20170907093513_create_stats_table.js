@@ -4,8 +4,6 @@ exports.up = function(knex, Promise) {
     table.string('name');
     table.enu('frequency', ['daily', 'weekly', 'monthly']);
 
-    table.string('gridArea');
-
     table.timestamps(true, true);
 
     table.dateTime('deleted_at');
