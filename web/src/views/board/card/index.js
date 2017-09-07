@@ -3,9 +3,9 @@ import View from './view';
 import Edit from './edit';
 
 export default class Card extends React.Component {
-  constructor() {
+  constructor({ data: { gridArea } }) {
     super();
-    this.state = { style: {} };
+    this.state = { style: { gridArea } };
   }
 
   save(data) {
@@ -15,12 +15,11 @@ export default class Card extends React.Component {
   render() {
     let { data } = this.props;
     let { style, hovering, edit } = this.state;
-    data.style = { ...data.style, ...style };
 
     return (
       <div
         className="block"
-        style={data.style}
+        style={style}
         onMouseEnter={() => (edit ? null : this.setState({ hovering: true }))}
         onMouseLeave={() => (edit ? null : this.setState({ hovering: false }))}
       >

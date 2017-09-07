@@ -1,13 +1,22 @@
 export default `
   type Board {
+    name: String!
+    slug: String!
     cards: [Card]
   }
 
   type Card {
     id: Int!
-    title: String
+    name: String
+    data: CardData
     type: CardType
-    style: CardStyle
+    gridArea: String
+  }
+
+  type CardData {
+    id: Int!
+    value: String
+    chart: [LineChart]
   }
 
   enum CardType {
@@ -15,7 +24,8 @@ export default `
     line
   }
 
-  type CardStyle {
-    gridArea: String
+  type LineChart {
+    x: Int
+    y: Int
   }
 `;

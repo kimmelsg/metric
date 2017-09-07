@@ -3,7 +3,7 @@ import Objection from 'objection';
 
 // Initialize knex connection.
 const knex = Knex({
-  debug: true,
+  debug: false,
   useNullAsDefault: true,
   client: 'mysql',
   connection: {

@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       .references('stats.id')
       .unsigned();
 
-    table.json('value');
+    table.specificType('value', 'json');
 
     table.timestamps(true, true);
 

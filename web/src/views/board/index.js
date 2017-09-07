@@ -4,15 +4,12 @@ import BoardQuery from '../../gql/queries/board';
 
 export class Board extends React.Component {
   render() {
-    console.log(this.props.data);
     let { board } = this.props.data;
     if (!board) return null;
-
+    console.log(board);
     return (
       <div className="board">
-        {board.cards.map((data, index) => (
-          <Card key={index} data={{ ...data }} />
-        ))}
+        {board.cards.map(data => <Card key={data.id} data={{ ...data }} />)}
       </div>
     );
   }

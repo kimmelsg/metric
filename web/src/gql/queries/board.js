@@ -4,11 +4,19 @@ export default graphql(
   gql`
     query Board($slug: String!) {
       board(slug: $slug) {
+        name
         cards {
-          title
+          id
+          name
           type
-          style {
-            gridArea
+          gridArea
+          data {
+            id
+            value
+            chart {
+              x
+              y
+            }
           }
         }
       }
