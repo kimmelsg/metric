@@ -24,7 +24,11 @@ export default class Card extends React.Component {
         onMouseLeave={() => (edit ? null : this.setState({ hovering: false }))}
       >
         {edit ? (
-          <Edit card={card} onStyleChange={style => this.setState({ style })} />
+          <Edit
+            card={card}
+            style={style}
+            onStyleChange={style => this.setState({ style })}
+          />
         ) : (
           <View
             card={card}

@@ -16,7 +16,14 @@ exports.seed = function(knex, Promise) {
           stat_id: 6,
           name: 'Revenue',
           type: 'line',
-          gridArea: '2 / 3 / 4 / 1',
+          gridArea: '2 / 3 / 6 / 1',
+        },
+        {
+          board_id: 1,
+          stat_id: 7,
+          name: 'CJ Revenue',
+          type: 'line',
+          gridArea: '2 / 3 / 6 / 6',
         },
       ]);
     });

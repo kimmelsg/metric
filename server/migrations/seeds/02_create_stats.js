@@ -17,6 +17,7 @@ exports.seed = function(knex, Promise) {
         { category: 'walter', slug: 'mtd', frequency: 'weekly' },
         { category: 'walter', slug: 'revenue', frequency: 'weekly' },
         { category: 'kimmel', slug: 'revenue', frequency: 'weekly' },
+        { category: 'kimmel', slug: 'newsletter', frequency: 'weekly' },
       ]);
     });
 };
