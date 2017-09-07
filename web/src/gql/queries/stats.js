@@ -7,8 +7,7 @@ export default graphql(
         title
         type
         style {
-          gridRow
-          gridColumn
+          gridArea
         }
       }
     }

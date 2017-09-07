@@ -12,7 +12,6 @@ export default `
   }
 
   type StatStyle {
-    gridColumn: String
-    gridRow: String
+    gridArea: String
   }
 `;

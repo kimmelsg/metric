@@ -10,7 +10,7 @@ export default (_, { boardId }) => {
     {
       title: 'Revenue',
       type: 'line',
-      style: { gridRow: '2 / 5' },
+      style: { gridArea: '2 / 3 / 4 / 1' },
     },
   ];
 };
