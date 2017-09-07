@@ -1,8 +1,9 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('stats', function(table) {
     table.increments();
-    table.string('name');
-    table.enu('frequency', ['daily', 'weekly', 'monthly']);
+    table.string('category');
+    table.string('slug');
+    table.enu('frequency', ['hourly', 'daily', 'weekly', 'monthly']);
 
     table.timestamps(true, true);
 

@@ -12,7 +12,11 @@ export default async (_, { slug }) => {
 
   let cards = board.cards.map(card => ({
     ...card,
-    data: { ...JSON.parse(card.data.value), id: card.data.id },
+    data: {
+      ...JSON.parse(card.data.value),
+      id: card.data.id,
+      date: card.data.date(card.data.updated_at),
+    },
   }));
 
   return { ...board, cards };

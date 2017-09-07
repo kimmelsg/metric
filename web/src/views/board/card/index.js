@@ -3,17 +3,17 @@ import View from './view';
 import Edit from './edit';
 
 export default class Card extends React.Component {
-  constructor({ data: { gridArea } }) {
+  constructor({ card: { gridArea } }) {
     super();
     this.state = { style: { gridArea } };
   }
 
-  save(data) {
-    this.setState({ style: data.style, edit: false });
+  save(card) {
+    this.setState({ style: card.style, edit: false });
   }
 
   render() {
-    let { data } = this.props;
+    let { card } = this.props;
     let { style, hovering, edit } = this.state;
 
     return (
@@ -24,10 +24,10 @@ export default class Card extends React.Component {
         onMouseLeave={() => (edit ? null : this.setState({ hovering: false }))}
       >
         {edit ? (
-          <Edit data={data} onStyleChange={style => this.setState({ style })} />
+          <Edit card={card} onStyleChange={style => this.setState({ style })} />
         ) : (
           <View
-            data={data}
+            card={card}
             hovering={hovering}
             triggerEdit={() => this.setState({ edit: true })}
           />

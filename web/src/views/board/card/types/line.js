@@ -22,16 +22,14 @@ export default class Line extends React.Component {
         <VictoryChart width={width} height={height} domainPadding={{ y: 20 }}>
           <VictoryAxis
             style={{
-              tickLabels: { fontSize: 18 },
               axis: { stroke: '#FFFFFF' },
-              tickLabels: { fill: '#FFFFFF' },
+              tickLabels: { fontSize: 17, fill: '#FFFFFF' },
             }}
           />
           <VictoryAxis
             style={{
-              tickLabels: { fontSize: 18 },
               axis: { stroke: '#FFFFFF' },
-              tickLabels: { fill: '#FFFFFF' },
+              tickLabels: { fontSize: 17, fill: '#FFFFFF' },
             }}
             dependentAxis
           />

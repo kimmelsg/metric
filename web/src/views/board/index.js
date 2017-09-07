@@ -6,10 +6,10 @@ export class Board extends React.Component {
   render() {
     let { board } = this.props.data;
     if (!board) return null;
-    console.log(board);
+
     return (
       <div className="board">
-        {board.cards.map(data => <Card key={data.id} data={{ ...data }} />)}
+        {board.cards.map(card => <Card key={card.id} card={{ ...card }} />)}
       </div>
     );
   }

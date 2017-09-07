@@ -12,6 +12,7 @@ export default graphql(
           gridArea
           data {
             id
+            date
             value
             chart {
               x

@@ -5,13 +5,18 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex('stats').insert([
-        { name: 'CJ revenue', frequency: 'weekly' },
-        { name: 'Kimmel MTD', frequency: 'weekly' },
-        { name: 'Walter WTD', frequency: 'weekly' },
+        //webhook: /insert/constructionjobs.com/revenue
+        {
+          category: 'constructionjobs.com',
+          slug: 'revenue',
+          frequency: 'weekly',
+        },
+        { category: 'kimmel', slug: 'revenue2', frequency: 'weekly' },
+        { category: 'walter', slug: 'weekly', frequency: 'weekly' },
 
-        { name: 'Walter Revenue', frequency: 'weekly' },
-        { name: 'Walter MTD', frequency: 'weekly' },
-        { name: 'Kimmel Revenue', frequency: 'weekly' },
+        { category: 'walter', slug: 'mtd', frequency: 'weekly' },
+        { category: 'walter', slug: 'revenue', frequency: 'weekly' },
+        { category: 'kimmel', slug: 'revenue', frequency: 'weekly' },
       ]);
     });
 };
