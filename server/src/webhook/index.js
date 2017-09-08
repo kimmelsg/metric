@@ -23,13 +23,13 @@ export default async (req, res) => {
       .orderBy('id', 'DESC')
       .first();
   }
+
   let canGoBack = true;
 
   if (!shouldInsert) {
     let amount = await Data.query()
       .where('stat_id', stat.id)
       .limit(2);
-    console.log(amount);
     if (amount.length !== 2) canGoBack = false;
   }
 
