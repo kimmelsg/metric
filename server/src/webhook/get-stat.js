@@ -31,6 +31,7 @@ export default async req => {
 
   let data = await Data.query()
     .where('stat_id', stat.id)
+    .orderBy('id', 'DESC')
     .first();
 
   let shouldInsert = false;
