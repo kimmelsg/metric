@@ -7,21 +7,15 @@ export default graphql(
         name
         cards {
           id
+          stat_id
           name
           type
           gridArea
-          data {
-            id
-            date
-            value
-            chart {
-              x
-              y
-            }
-          }
         }
       }
     }
   `,
-  { options: props => ({ variables: { slug: props.match.params.board } }) }
+  {
+    options: props => ({ variables: { slug: props.match.params.board } }),
+  }
 );

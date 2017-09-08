@@ -9,12 +9,14 @@ export default class Edit extends React.Component {
   }
 
   render() {
-    let { card, style, onStyleChange } = this.props;
+    let { style, onStyleChange } = this.props;
     return (
-      <div className="block-editor">
-        <Form values={style} onValues={onStyleChange}>
-          <Input type="text" placeholder="Grid Area" name="gridArea" />
-        </Form>
+      <div className="block">
+        <div className="block-editor">
+          <Form values={style} onValues={onStyleChange}>
+            <Input type="text" placeholder="Grid Area" name="gridArea" />
+          </Form>
+        </div>
       </div>
     );
   }

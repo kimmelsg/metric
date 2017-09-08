@@ -9,15 +9,30 @@ const getNext = (data, before) => {
 
 export default async (_, { input }) => {
   if (!input) return null;
-  let { before, after } = input;
+  let { before, after, stat_id } = input;
 
-  let data = await Data.query().findById(before || after);
+  let result;
+  if (stat_id)
+    result = await Data.query()
+      .where('stat_id', stat_id)
+      .orderBy('id', 'DESC')
+      .first();
+  else {
+    let data = await Data.query().findById(before || after);
 
-  let result = await getNext(data, before);
-  if (!result) return null;
+    result = await getNext(data, before);
+    if (!result) return null;
+  }
+
+  let [canGoBack, canGoForward] = await Promise.all([
+    getNext(result, true),
+    getNext(result),
+  ]);
 
   return {
     id: result.id,
+    canGoBack: canGoBack ? true : false,
+    canGoForward: canGoForward ? true : false,
     ...JSON.parse(result.value),
     date: result.date(result.updated_at),
   };

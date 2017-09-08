@@ -1,30 +1,36 @@
 import React from 'react';
 import Title from './title';
 import types from '../types';
-import { getDataBeforeOrAfter } from '../../../../gql/mutations/data';
-
-const Wrap = ({ children }) => children;
+import { getData } from '../../../../gql/queries/data';
 
 export class View extends React.Component {
-  constructor({ card }) {
+  constructor() {
     super();
-    this.state = { card, dataTop: card.data.id };
+    this.state = {};
   }
-  async getNext(input, id) {
-    let { card, dataTop } = this.state;
 
+  async getNext(input) {
     let { refetch } = this.props.data;
-    let { data } = await refetch({ input });
-    if (!data.data && id <= dataTop) return this.setState({ dataBottom: id });
-    if (!data.data) return;
-    this.setState({ card: { ...card, data: data.data } });
+    refetch({ input });
   }
+
+  componentWillMount() {
+    this.props.subscribeToData(this.props.card.stat_id);
+  }
+
   render() {
-    let { card, dataTop, dataBottom } = this.state;
-    let { hovering, triggerEdit } = this.props;
+    let { hovering } = this.state;
+    let { data } = this.props.data;
+    let { card, triggerEdit, style } = this.props;
+    if (!data) return null;
 
     return (
-      <Wrap>
+      <div
+        className="block"
+        style={style}
+        onMouseEnter={() => this.setState({ hovering: true })}
+        onMouseLeave={() => this.setState({ hovering: false })}
+      >
         <div className="block-actions">
           {hovering ? (
             <i
@@ -35,23 +41,22 @@ export class View extends React.Component {
           ) : null}
         </div>
         <div className="block-container">
-          {React.createElement(types[card.type], card)}
+          {React.createElement(types[card.type], data)}
 
           <div className="block-display">
             <Title
               card={card}
+              data={data}
               hovering={hovering}
-              dataTop={dataTop}
-              dataBottom={dataBottom}
-              getBefore={before => this.getNext({ before }, before)}
-              getAfter={after => this.getNext({ after }, after)}
+              getBefore={before => this.getNext({ before })}
+              getAfter={after => this.getNext({ after })}
             />
-            <div className="block-title">{card.data.date}</div>
+            <div className="block-title">{data.date}</div>
           </div>
         </div>
-      </Wrap>
+      </div>
     );
   }
 }
 
-export default getDataBeforeOrAfter(View);
+export default getData(View);

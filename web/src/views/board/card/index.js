@@ -15,28 +15,19 @@ export default class Card extends React.Component {
   render() {
     let { card } = this.props;
     let { style, hovering, edit } = this.state;
-
-    return (
-      <div
-        className="block"
+    return edit ? (
+      <Edit
+        card={card}
         style={style}
-        onMouseEnter={() => (edit ? null : this.setState({ hovering: true }))}
-        onMouseLeave={() => (edit ? null : this.setState({ hovering: false }))}
-      >
-        {edit ? (
-          <Edit
-            card={card}
-            style={style}
-            onStyleChange={style => this.setState({ style })}
-          />
-        ) : (
-          <View
-            card={card}
-            hovering={hovering}
-            triggerEdit={() => this.setState({ edit: true })}
-          />
-        )}
-      </div>
+        onStyleChange={style => this.setState({ style })}
+      />
+    ) : (
+      <View
+        style={style}
+        card={card}
+        hovering={hovering}
+        triggerEdit={() => this.setState({ edit: true })}
+      />
     );
   }
 }

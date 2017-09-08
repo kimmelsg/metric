@@ -2,24 +2,26 @@ import React from 'react';
 
 export default ({
   dataTop,
-  dataBottom,
+  canGoBack,
+  canGoForward,
   card,
+  data,
   getBefore,
   getAfter,
   hovering,
 }) => (
   <div className="block-title">
-    {(!dataBottom || dataBottom < card.data.id) && hovering ? (
+    {data.canGoBack && hovering ? (
       <i
         className="fa fa-arrow-left clickable"
-        onClick={() => getBefore(card.data.id)}
+        onClick={() => getBefore(data.id)}
       />
     ) : null}
     <span>{card.name}</span>
-    {dataTop !== card.data.id && hovering ? (
+    {data.canGoForward && hovering ? (
       <i
         className="fa fa-arrow-right clickable"
-        onClick={() => getAfter(card.data.id)}
+        onClick={() => getAfter(data.id)}
       />
     ) : null}
   </div>

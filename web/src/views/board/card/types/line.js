@@ -16,7 +16,7 @@ export default class Line extends React.Component {
 
   render() {
     let { height, width } = this.state;
-    let { data: { chart = {} } } = this.props;
+    let { chart = {} } = this.props;
     return (
       <div className="chart" ref={chart => (this.chart = chart)}>
         <VictoryChart width={width} height={height} domainPadding={{ y: 20 }}>

@@ -8,6 +8,7 @@ export default `
 
   type Card {
     id: Int!
+    stat_id: Int!
     name: String
     data: CardData
     type: CardType
@@ -16,6 +17,8 @@ export default `
 
   type CardData {
     id: Int!
+    canGoBack: Boolean
+    canGoForward: Boolean
     date: String!
     value: String
     chart: [LineChart]
@@ -33,6 +36,7 @@ export default `
 
 
   input CardDataInput {
+    stat_id: Int
     before: Int
     after: Int
   }

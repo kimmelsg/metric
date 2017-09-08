@@ -17,18 +17,29 @@ export default async (req, res) => {
       .update({ value: JSON.stringify(req.body) })
       .where('stat_id', stat.id)
       .orderBy('id', 'DESC')
-      .first();
+      .limit(1);
     data = await Data.query()
       .where('stat_id', stat.id)
       .orderBy('id', 'DESC')
       .first();
   }
+  let canGoBack = true;
+
+  if (!shouldInsert) {
+    let amount = await Data.query()
+      .where('stat_id', stat.id)
+      .limit(2);
+    console.log(amount);
+    if (amount.length !== 2) canGoBack = false;
+  }
 
   pubsub.publish('newData', {
     ...req.body,
     id: data.id,
+    canGoBack,
+    canGoForward: false,
     stat_id: data.stat_id,
-    date: moment().format('MMM Do h:mm a'),
+    date: moment().format('h:mm'),
   });
 
   res.status(shouldInsert ? 201 : 200).send({ success: true });

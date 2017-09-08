@@ -12,7 +12,7 @@ export default class Data extends Objection.Model {
 
   date(time) {
     let date = moment(time, 'YYYY-MM-DD HH:mm:ss');
-    if (date.isSame(new Date(), 'day')) return date.format('h:mm a');
+    if (date.isSame(new Date(), 'day')) return date.format('h:mm');
     return date.format('MMM Do h:mm a');
   }
 }
