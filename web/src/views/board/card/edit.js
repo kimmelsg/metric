@@ -11,7 +11,7 @@ export default class Edit extends React.Component {
   render() {
     let { style, onStyleChange } = this.props;
     return (
-      <div className="block">
+      <div className="block" style={style}>
         <div className="block-editor">
           <Form values={style} onValues={onStyleChange}>
             <Input type="text" placeholder="Grid Area" name="gridArea" />
