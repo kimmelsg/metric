@@ -21,10 +21,10 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(process.cwd(), '../web/build')));
+app.use(express.static(path.join(process.cwd(), '/../web/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(process.cwd() + '../web/build/index.html'));
+  res.sendFile(path.join(process.cwd() + '/../web/build/index.html'));
 });
 
 const server = http.createServer(app);
