@@ -30,7 +30,7 @@ export default `
   }
 
   type LineChart {
-    x: Int
+    x: String
     y: Int
   }
 
