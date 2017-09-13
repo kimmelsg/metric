@@ -1,4 +1,5 @@
 import './src/models';
+import path from 'path';
 import http from 'http';
 import gql from 'graphql';
 import express from 'express';
