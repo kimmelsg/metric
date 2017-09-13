@@ -5,10 +5,8 @@ import Board from '../views/board';
 
 export default () => (
   <BrowserRouter>
-    <div>
-      <Switch>
-        <Route path="/:board" component={Board} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/:board" component={Board} />
+    </Switch>
   </BrowserRouter>
 );
