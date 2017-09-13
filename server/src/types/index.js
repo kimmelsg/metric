@@ -5,7 +5,7 @@ const query = `
     # Get cards and other data for a stat board
     board(slug: String!): Board
 
-    #go back and forth in time for charts
+    #get chart data, go back and forth in time
     data(input: CardDataInput): CardData
   }
 
